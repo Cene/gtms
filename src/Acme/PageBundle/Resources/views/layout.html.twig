@@ -1,0 +1,32 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent () }}
+
+    {% stylesheets 
+        '@AcmePageBundle/Resources/public/css/*'
+        output='css/blogger.css'
+        filter='?yui_css'
+    %}
+
+        <link href="{{ asset_url }}" rel="stylesheet" media="screen" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent () }}
+	
+	{% javascripts 
+    	'@AcmePageBundle/Resources/public/js/jstree/jquery.jstree.js'
+    	output='js/tree.js'
+    %}
+
+    	<script src="{{ asset_url }}" type="text/javascript"></script>
+    {% endjavascripts %}
+		
+{% endblock %}
+
+
+{% block sidebar %}
+    {% render "BloggerBlogBundle:Page:sidebar" %}
+{% endblock %}

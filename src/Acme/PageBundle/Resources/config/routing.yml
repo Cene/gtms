@@ -1,0 +1,3 @@
+AcmePageBundle_admin:
+    pattern:  /pages/admin/{name}
+    defaults: { _controller: AcmePageBundle:Admin:index }
