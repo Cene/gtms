@@ -24,11 +24,13 @@
 		</li>
 	</ul>
 </div>
-{{ asset('@AcmePageBundle/Resources ') }}
+
 <script type="text/javascript" class="source below">
 $(function () {
 	// TO CREATE AN INSTANCE
 	// select the tree container using jQuery
+	$.jstree._themes = "{{ asset('bundles/acmepage/js/jstree/themes/') }}";
+	//$.jstree._themes = "/src/Acme/PageBundle/Resources/public/js/jstree/themes/";
 	$("#demo1")
 		// call `.jstree` with the options object
 		.jstree({
@@ -37,7 +39,7 @@ $(function () {
 			// each plugin you have included can have its own config object
 			"core" : { "initially_open" : [ "phtml_1" ] },
 			// it makes sense to configure a plugin only if overriding the defaults
-			"themes" : { "url" : [ {{ asset('bundles/acmemy/img/my_image.png ') }} ] }
+			//"themes" : { "url" : "@AcmePageBundle/Resources/js/jstree/themes/" }
 		})
 		// EVENTS
 		// each instance triggers its own events - to process those listen on the container
@@ -59,6 +61,7 @@ $(function () {
 		// data.inst is the instance which triggered this event
 		data.inst.select_node("#phtml_2", true);
 	});
+	
 	setTimeout(function () { $.jstree._reference("#phtml_1").open_node("#phtml_1"); }, 2500);
 });
 </script>
